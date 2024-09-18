@@ -1,5 +1,7 @@
 package br.com.hr_user.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,10 +30,11 @@ public class User implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
+    @JsonIgnore
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
