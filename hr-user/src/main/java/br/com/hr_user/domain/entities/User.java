@@ -31,7 +31,7 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "passoword")
+    @Column(name = "password")
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
