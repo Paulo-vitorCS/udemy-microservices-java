@@ -1,6 +1,5 @@
 package br.com.hr_oauth.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,10 +20,9 @@ public class User implements UserDetails, Serializable {
 
     private String email;
 
-    @JsonIgnore
     private String password;
 
-    Set<Role> roles = new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
 
     public User() {
     }
@@ -66,6 +64,10 @@ public class User implements UserDetails, Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 
     @Override
